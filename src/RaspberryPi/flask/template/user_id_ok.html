@@ -1,0 +1,174 @@
+{% extends './common/base.html' %}
+{% block title %} {{ user_name }} {% endblock %}
+{% block more_head %}
+<script src="/static/js/utils_autorefresh.js"></script>
+<script src="/static/js/queue_mgm.js"></script>
+<script src="/static/js/utils.js"></script>
+<script src="/static/js/easytimer.min.js"></script>
+<script>
+
+  function activateAutoLeaveQueue() {
+    activateAutoLeaveQueueonExit("{{ user_pos }}", post_data = '0x0');
+  }
+
+  let htmlButtonLeaveQueue = "<a class='btn btn-secondary btn-lg mx-4' href='/user/{{ user_pos }}/leave_queue'>Leave queue</a>"
+  let difficult = "easy";
+  window.onload = () => {
+    document.getElementById('btn-div').innerHTML += htmlButtonLeaveQueue;
+  };
+
+  function setDifficult(diff) {
+    difficult = diff;
+    console.log('Setting difficult to: ' + difficult);
+  }
+
+  activateAutoLeaveQueue();
+  activateElementRefreshJSON(getJSONSystemTempUrl(), 'temp_field', 'avg', timeout=30000);
+  activateElementRefreshJSON(getJSONSystemLuminiscenceUrl(), 'lum_field', 'max', timeout=30000);
+  activateElementRefreshJSON(getJSONSystemHumidity(), 'hum_field', 'avg', timeout=30000);
+
+  function buttonStartClickEvent() {
+    
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          response = JSON.parse(xhttp.responseText);
+          console.log(response);
+          
+          /*item = response['checkpoints']['nCheckpoints'];
+          console.log('Final time is: ' +  response['checkpoints'][item]);
+          $('#btn-div').html("<h2>Finished!<br>Your time is " + response['checkpoints'][item] + "</h2><br>" + htmlButtonLeaveQueue);*/
+      }
+    };
+
+    xhttp.open("POST", "/user/{{ user_pos }}/start_running/" + difficult, true);
+    xhttp.send();
+
+    let seconds_timeout = 10;
+    var timer = new easytimer.Timer();
+    timer.start({countdown: true, startValues: {seconds: seconds_timeout}, precision: 'secondTenths'});
+    timer.addEventListener('secondTenthsUpdated', function (e) {
+        $('#btn-div').html("<h2>" + timer.getTimeValues().toString(['hours', 'minutes', 'seconds', 'secondTenths']) + "</h2>");
+    });
+    startTime = new Date();
+    console.log("startTime: " + startTime);
+
+    setTimeout(() => {
+      //3 rows below are here in order to have a good start time. if the phone is putted in stand by, this timeOut will start only when the phone is waked up
+      startTime2 = new Date();
+      console.log("startTime2: " + startTime2);
+      var timer2 = new easytimer.Timer();
+      timer2.start({precision: 'secondTenths', startValues: {seconds: (startTime2 - startTime)/1000 - seconds_timeout}});
+      timer2.addEventListener('secondTenthsUpdated', function (e) {
+        $('#btn-div').html("<h2>" + timer2.getTimeValues().toString(['hours', 'minutes', 'seconds', 'secondTenths']) + "</h2>");
+      });
+
+      interval = setInterval(() => {
+        let request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {        
+            response = JSON.parse(request.responseText);
+            //console.log(response);  
+    
+            if (response['is_user_running'] == false) { //putting this to ==false instead of !condition works. maybe it is considered as true when it's in standby because is !null
+              timer2.stop();
+
+              interval2 = setInterval(() => {
+                let req_data = new XMLHttpRequest();
+                req_data.onreadystatechange = function() {
+                  if (this.readyState == 4 && this.status == 200) {
+                    response_data = JSON.parse(req_data.responseText);
+                    console.log(response_data);
+
+                    if (response_data['available'] == true) {
+                      clearInterval(interval2);
+                      
+                      let checkpoints = response_data['data']['checkpoints']
+                      let item = checkpoints['nCheckpoints'];
+                      console.log('Final time is: ' +  checkpoints[item]);
+                      $('#btn-div').html("<h2>Finished!<br>Your time is " + checkpoints[item] + "</h2><br>" + htmlButtonLeaveQueue);
+                    }
+                  }
+                };
+
+                req_data.open("GET", "/user/{{ user_pos }}/data_run", true);
+                req_data.send();
+              }, 500);
+
+              clearInterval(interval);
+            }
+          }
+        };
+
+        request.open("GET", "/user/{{ user_pos }}/is_running", true);
+        request.send();
+      }, 2000);
+    }, (seconds_timeout * 1000) + 50);
+  }
+
+</script>
+{% endblock %}
+{% block content %}
+<div class="py-auto text-center parallax cover gradient-overlay" style="background-image: url('/static/img/bg2.jpg'); position: relative; background-position: center center; background-size: cover;" >
+  <div class="container d-flex flex-column" style="">
+    <div class="row my-auto">
+      <div class="col-md-12 text-white" style="">
+        <img class="img-fluid d-block rounded-circle mb-3 mx-auto" src="{{ avatar }}" style="">
+        <h2><b>{{ user_name }}</b></h2>
+        <span id="btn-div">
+          
+          <div class="py-2 row my-auto">
+            <div class="col-md-12 text-white" style="">
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary" onclick="setDifficult('easy')">Easy</button>
+                <button type="button" class="btn btn-secondary" onclick="setDifficult('medium')">Medium</button>
+                <button type="button" class="btn btn-secondary" onclick="setDifficult('hard')">Hard</button>
+              </div>
+            </div>
+          </div>
+          
+          <a class="btn btn-primary btn-lg mx-4" onclick="buttonStartClickEvent()" href="#">Start your run</a>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="h-25 container d-flex flex-column" style="">
+    <div class="row justify-content-center pt-5 text-white">
+      <div class="col-md-3">
+        <h4 class="" style="">Temperature<small class="text-light"><br><span id="temp_field">20</span>° C</small></h4>
+      </div>
+      <div class="col-md-3">
+        <h4 class="">Humidity<small class="text-light"><br><span id="hum_field">30</span> %</small></h4>
+      </div>
+      <div class="col-md-3" style="">
+        <h4 class="">Luminosity<small class="text-light"><br><span id="lum_field">30</span> lux</small></h4>
+      </div>
+      <div class="col-md-3">
+        <h4 class="" style="">Last Heart Rate<small class="text-light"><br>{{ last_heart_rate }}</small></h4>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+<!--
+<html>
+    <head>
+
+    </head>
+    <body>
+        <p>Hi {{ user_name }}!</p>
+        <p><img src="{{ avatar }}"></p><br>
+        <p>Steps at {{ date }}: {{ steps }}</p><br>
+        <table border = 1>
+            {% for e in heart_dict %}
+               <tr>
+                  <th> {{ e['time'] }} </th>
+                  <td> {{ e['value'] }} </td>
+               </tr>
+            {% endfor %}
+         </table><br>
+        <a href="/user/{{ user_pos }}/leave_queue">Click here to leave the queue.</a>
+    </body>
+</html>
+-->

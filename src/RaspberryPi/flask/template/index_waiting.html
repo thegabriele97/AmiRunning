@@ -1,0 +1,31 @@
+{% extends "./common/base.html" %}
+
+{% block title %}Queue{% endblock %}
+{% block more_head %}
+<script src="/static/js/queue_mgm.js"></script>
+<script>
+  JSONUserTurnURL = getJSONUserTurnUrl("{{ user_pos }}");
+  activateAutoLeaveQueueonExit("{{ user_pos }}");
+  activateReloadOnUserTurn(JSONUserTurnURL, "left-count");
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="text-center parallax cover gradient-overlay" style="background-image: url(&quot;https://ami-2019.github.io/AmIRunning/assets/img/header.jpg&quot;); position: relative; background-position: center center; background-size: cover;">
+  <div class="container d-flex flex-column">
+    <div class="row my-auto">
+      <div class="col-md-12">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Queue status</h5>
+            <p class="card-text"><b>Waiting for your turn: #<i id="left-count"></i></b><br>
+              <i>Auto refresh is enabled.</i></p>
+            <a href="/user/{{ user_pos }}/leave_queue" class="btn btn-primary">Leave queue</a>
+            </div>
+            <div class="card-footer"><b><i>Please, don't close or refresh this page</i></b><i> or you will lose your position.</i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.standalone.min.css">
+  <link rel="stylesheet" href="now-ui-kit.css" type="text/css">
+  <link rel="stylesheet" href="assets/css/nucleo-icons.css" type="text/css">
+  <script src="assets/js/navbar-ontop.js"></script>
+  <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
+  <title>AmIRunning</title>
+  <meta name="description" content="PoliTo Ambient Intelligence Course - 2018/19">
+  <meta name="keywords" content="IOT, AmI, Polito">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+
+</head>
+
+<body class="">
+  <nav class="navbar navbar-expand-lg bg-primary navbar-dark fixed-top" style="">
+    <div class="container">
+      <a class="navbar-brand w-150 h-150" title="Designed for Polito Courses" data-placement="bottom" data-toggle="tooltip" href="#" contenteditable="true"><b>AmIRunning</b></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNowUIKitFree">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center justify-content-end" id="navbarNowUIKitFree">
+        <ul class="navbar-nav">
+          <li class="nav-item mx-1 align-items-center d-flex justify-content-center flex-grow-1" id="vision-item">
+            <a class="nav-link" href="#vision_section">
+              <i class="now-ui-icons files_paper x2 mr-2">&nbsp;Vision</i></a>
+          </li>
+          <li class="nav-item mx-1 align-items-center d-flex justify-content-center">
+            <a class="nav-link" href="#steps_section">
+              <i class="now-ui-icons files_paper x2 mr-2">&nbsp;Main Steps</i></a>
+          </li>
+          <li class="nav-item mx-1 align-items-center d-flex justify-content-center">
+            <a class="nav-link" href="#features_section">
+              <i class="now-ui-icons files_paper x2 mr-2">&nbsp;Features</i></a>
+          </li>
+          <li class="nav-item mx-1 align-items-center d-flex justify-content-center">
+            <a class="nav-link" href="#architecture_section">
+              <i class="now-ui-icons files_paper x2 mr-2">&nbsp;Architecture</i></a>
+          </li>
+          <li class="nav-item mx-1 align-items-center d-flex justify-content-center">
+            <a class="nav-link" href="#comp_sections">
+              <i class="now-ui-icons files_paper x2 mr-2">&nbsp;Components</i></a>
+          </li>
+          <li class="nav-item mx-1 align-items-center d-flex justify-content-center">
+            <a class="nav-link" href="#issues_sections">
+              <i class="now-ui-icons files_paper x2 mr-2">&nbsp;Open Issues</i></a>
+          </li>
+          <li class="nav-item mx-1 align-items-center d-flex justify-content-center">
+            <a class="nav-link" href="#team_section">
+              <i class="now-ui-icons files_paper x2 mr-2">&nbsp;Team</i></a>
+          </li>
+        </ul>
+        
+        <a class="btn btn-light text-primary" href="http://130.192.31.87:8090/">Access to the service</a>
+      </div>
+    </div>
+  </nav>
+  <div class="py-5 text-center parallax cover gradient-overlay" style="background-image: url(&quot;./assets/img/header.jpg&quot;); position: relative; background-position: center center; background-size: cover;">
+    <div class="container d-flex flex-column">
+      <div class="row my-auto">
+        <div class="col-md-12 text-white">
+          <img class="mb-5" src="./assets/img/ezgif-4-750f468bdf6e.png" width="110">
+          <h3 class="mb-1 display-1">AmI Running</h3  >
+          <h5 class="mb-2">A beatiful Ambient Intelligent System&nbsp;<br>designed to give you a better running experience</h5>
+        </div>
+      </div>
+      <div class="row my-auto">
+        <div class="col-md-12" >
+          <iframe width="520" height="315" src="https://www.youtube.com/embed/qotZe2aHqVU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <!--<div class="row py-3">
+        <div class="col-md-12" ><a class="btn btn-primary btn-lg" href="#vision_section" contenteditable="false">Let's Explore!</a>
+        <a class="btn btn-primary btn-lg" href="#vision_section" contenteditable="false">Let's Explore!</a></div>
+      </div>-->
+    </div>
+  </div>
+  <div class="py-5 text-center" id="vision_section">
+    <div class="container" id="vision">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="mb-3">VISION</h1>
+          <p>AmiRunning is a system designed for people that want a fully customized running/parkour experience on Skate Parks (eg. Piazza Valdo Fusi in Turin).&nbsp;<br><br>Sensing the fatigue, blood pressure, heart rate, as long as the environment (such as weather, humidity..), the system is able to act on the park, modifying the obstacles (eg. the height or slope of platforms) and the path itself.&nbsp;<br><br>In this way, the entire system is able to interact directly with the user, transforming the environment thanks to the infos collected during his experience. At the end of the run, a series of statistics (heart rate, temperature, humidity, lap time) will be showed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-3 text-center" id="steps_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1>MAIN STEPS</h1>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-3 col-6 p-4"> <i class="d-block fa fa-eye fa-3x mb-2 text-muted"></i>
+          <h4 style=""> <b>Sensing</b></h4>
+          <p>The system takes data from environment, in particular humidity and weather, as well as user’s conditions, mainly fatigue and hearth rate</p>
+        </div>
+        <div class="col-lg-3 col-6 p-4"> <i class="d-block fa fa-map-o fa-3x mb-2 text-muted"></i>
+          <h4> <b>Reasoning</b></h4>
+          <p contenteditable="true">The system, thanks to collected data, is able to decide what kind of changes is going to do on the system, in order to guarantee the best running/parkour experience.</p>
+        </div>
+        <div class="col-lg-3 col-6 p-4"> <i class="d-block fa fa-bolt fa-3x mb-2 text-muted"></i>
+          <h4> <b>Acting</b></h4>
+          <p>The environment will change the obstacles height and will adapt to climatic changes, for example it will remove some obstacles if they aren't safe (after considering the weather). It will also modify the difficulty of the path according to the runner/traceur's conditions (considering physical conditions such as heart rate and fatigue).</p>
+        </div>
+        <div class="col-lg-3 col-6 p-4"> <i class="d-block fa fa-exchange fa-3x mb-2 text-muted"></i>
+          <h4 style=""> <b>Interacting</b></h4>
+          <p>Before the training, the user can decide from 3 levels of difficulty, that will modify the obstacles. At the end of the run, a detailed report will be shown to the runner.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-3 text-center" id="features_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1>FEATURES</h1>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-3 col-6 p-4"> <i class="d-block fa fa-fighter-jet fa-3x mb-2 text-muted"></i>
+          <h4 style=""> <b>Sensitive</b></h4>
+          <p>A smart collection of sensor will constantly monitorize both user and environment changes/conditions</p>
+        </div>
+        <div class="col-lg-3 col-6 p-4"> <i class="d-block fa fa-check fa-3x mb-2 text-muted"></i>
+          <h4> <b>Responsive</b></h4>
+          <p>The acting on environment is made as fast as possible, to give a sense of "continuity" in the path to the runner</p>
+        </div>
+        <div class="col-lg-3 col-6 p-4"> <i class="d-block fa fa-tasks fa-3x mb-2 text-muted"></i>
+          <h4> <b>Adaptive</b></h4>
+          <p>The system will continuously evolve and adapt depending on all the data coming from the environment</p>
+        </div>
+        <div class="col-lg-3 col-6 p-4"> <i class="d-block fa fa-cogs fa-3x mb-2 text-muted"></i>
+          <h4 style=""> <b>Intelligent</b></h4>
+          <p>The system will smartly change in order to provide the best and safer path for the user</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-3 text-center" id="architecture_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1>ARCHITECTURE</h1>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-6 p-4"> <i class="d-block fa fa-cloud fa-3x mb-2 text-muted"></i>
+          <h4 style=""> <b>Central</b></h4>
+          <p>All system is located in a central web server, where data are stored and managed</p>
+        </div>
+        <div class="col-lg-4 col-6 p-4"> <i class="d-block fa fa-database fa-3x mb-2 text-muted"></i>
+          <h4> <b>Distributed</b></h4>
+          <p>The system is available from everywhere and everytime</p>
+        </div>
+        <div class="col-lg-4 col-6 p-4"> <i class="d-block fa fa-mobile fa-3x mb-2 text-muted"></i>
+          <h4> <b>Mobile</b></h4>
+          <p>Everything is based on a very light and smoooth web application, to offer a good user experience</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-3">
+    <div class="container">
+      <div class="row my-4 d-flex justify-content-center">
+        <div class="d-flex flex-column justify-content-center p-3 col-lg-7" style="">
+          <p class="lead mb-0">Our Raspberry Pi is the core of everything. The role of web server for our web application and circuit master is performed by it. </p>
+        </div>
+        <div class="p-0 col-lg-3"> <img class="img-fluid d-block" src="./assets/img/raspberry.png"> </div>
+      </div>
+      <div class="row my-4 d-flex justify-content-center">
+        <div class="p-0 order-2 order-lg-1 col-lg-3"> <img class="img-fluid d-block" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Arduino-uno-perspective-transparent.png/681px-Arduino-uno-perspective-transparent.png"> </div>
+        <div class="d-flex flex-column justify-content-center p-3 col-lg-7 order-1 order-lg-2">
+          <p class="lead mb-0">The role of Arduino Uno, with Adafruit Motorshield V2 upon it, is to control Steppers Motor installed. Acting as a Slave of entire circuit, his scope is to perform the requests made by Raspberry Pi</p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row my-4 d-flex justify-content-center">
+        <div class="d-flex flex-column justify-content-center p-3 col-lg-7">
+          <p class="lead mb-0">Thanks to user's FitBit Charge HR and other Sensors placed along the path, the system is able to adapt the obstacles and give a better running experience</p>
+        </div>
+        <div class="p-0 col-lg-3"> <img class="img-fluid d-block" src="https://blog.fitbit.com/wp-content/uploads/2015/01/3newproducts_4x6_300DPI.png"> </div>
+      </div>
+      <div class="row my-4 d-flex justify-content-center">
+        <div class="p-0 order-2 order-lg-1 col-lg-3"> <img class="img-fluid d-block" src="https://www.researchgate.net/profile/Carlo_Concari/publication/3219650/figure/fig2/AS:367809856065538@1464704111229/a-Full-step-operation-and-b-half-step-operation-for-a-two-phase-stepping-motor.png"> </div>
+        <div class="d-flex flex-column justify-content-center p-3 col-lg-7 order-1 order-lg-2">
+          <p class="lead mb-0">With our stepper motors we are able to move obstacles and adapt them to you</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5" id="comp_sections">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center" style="">HW COMPONENTS</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i class="fa fa-microchip text-primary mr-2"></i>Raspberry Pi</li>
+            <li class="list-group-item"><i class="fa fa-microchip text-primary mr-2"></i>Arduino UNO</li>
+            <li class="list-group-item"><i class="fa fa-thermometer-full text-primary mr-2"></i>ZWave Sensors</li>
+            <li class="list-group-item"><i class="fa fa-clock-o text-primary mr-2"></i>FitBit Charge HR</li>
+            <li class="list-group-item"><i class="fa fa-thermometer-full text-primary mr-2"></i>Ultrasonic sensor</li>
+            <li class="list-group-item"><i class="fa fa-thermometer-full text-primary mr-2"></i>PIR sensor</li>
+            <li class="list-group-item"><i class="fa fa-tachometer text-primary mr-2"></i>Stepper motors</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5 text-center" id="issues_sections" style="">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="" style="" contenteditable="true">OPEN ISSUES</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mx-auto col-md-10"> <i class="d-block fa fa-stop-circle fa-4x mb-3 text-muted"></i>
+          Stepper motor are a bit slow, due to the screw being small;&nbsp;<br><br>The heart rate isn't updated in real time because the fit bit doesn't give in real time responses
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5 text-center" id="team_section">
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto col-md-12">
+          <h1 class="mb-3">MEET THE TEAM</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-6 p-4"> <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="https://scontent-mxp1-1.xx.fbcdn.net/v/t1.0-9/35807849_10212367025118523_1721883063622828032_n.jpg?_nc_cat=104&_nc_oc=AQku664dt92m9T0ZLJnbKvK8HyUgcZ8zJL3sKlxIRszrYC1KhxE1tYsRAEM4b3iwUGKIIzoCef5bMsBOZXsZm4zW&_nc_ht=scontent-mxp1-1.xx&oh=18b9f5a189f8cba92c4ab05d7e8f9e7e&oe=5DA46E43" width="100" alt="Card image cap">
+          <h4> <b>Salvatore Gabriele La Greca</b></h4>
+          <p>Software & Hardware developer</p>
+          <p class="mb-0"> <i>s237848@studenti.polito.it thegabriele97</i> </p>
+        </div>
+        <div class="col-lg-3 col-6 p-4"> <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="https://i.gyazo.com/973c43de0503aeebe39ec6aa03fb0430.png" width="100" alt="Card image cap">
+          <h4> <b>Franco&nbsp;</b><br><b>Volante</b></h4>
+          <p>Software developer</p>
+          <p class="mb-0"> <i>s233868@studenti.polito.it FrancoVol</i> </p>
+        </div>
+        <div class="col-lg-3 col-6 p-4"> <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="https://i.gyazo.com/01766eb11a76232c790428f7ce45a1d3.png" width="100">
+          <h4> <b>Cristiano</b><br><b>Marinelli</b></h4>
+          <p>Hardware Designer and Developer</p>
+          <p class="mb-0"> <i>s236026@studenti.polito.it Crismarins</i> </p>
+        </div>
+        <div class="col-lg-3 col-6 p-4"> <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="https://i.gyazo.com/a09300d722b0465011d9f6f9bae707ea.png" width="100">
+          <h4> <b>Federico Macellaro</b></h4>
+          <p>Software developer</p>
+          <p class="mb-0"> <i>s235147@studenti.polito.it FedericoMacellaro</i> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="mb-0">© 2018-2019 Polito. All rights reserved</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="assets/js/parallax.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+  <script style="">
+    $(document).ready(function() {
+      $('[data-toggle="popover"]').popover();
+      $('[data-toggle="tooltip"]').tooltip();
+      $('#datepicker-example').datepicker({
+        calendarWeeks: true,
+        autoclose: true,
+        todayHighlight: true
+      });
+    });
+  </script>
+  </body>
+
+</html>

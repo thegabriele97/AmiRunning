@@ -1,0 +1,36 @@
+{% extends "./common/base.html" %}
+{% block title %}Log-in{% endblock %}
+
+{% block more_head %}
+<link rel="stylesheet" href="/static/css/loader.css" type="text/css">
+<script>
+
+  window.onload = () => {
+    document.getElementById('queueadd_button').addEventListener('click', () => {
+      document.getElementById('button-insert').innerHTML = "<div class='loader btn'></div>";
+    });
+  }
+
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="text-center parallax cover gradient-overlay" style="background-image: url(&quot;https://ami-2019.github.io/AmIRunning/assets/img/header.jpg&quot;); position: relative; background-position: center center; background-size: cover;">
+    <div class="container d-flex flex-column">
+      <div class="row my-auto">
+        <div class="col-md-12">
+          <div class="card text-center">
+            <div class="card-body" id="body-card">
+              <h5 class="card-title">Queue status</h5>
+              <p class="card-text">There are at the moment <b>{{ user_in_queue }} users in queue</b> waiting for their turn.<br>
+                You can add yourself and waiting for your turn.</p>
+              <div id="button-insert">
+                <a href="/insert_user" onclick="openInNewTab('{{ auth_url }}')" class="btn btn-primary" id="queueadd_button">Add me to the queue</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{
+   "fitbit_client_id": "22DQLJ",
+   "fitbit_client_secret": "23a7a594eb8df6a837b04dc515c1cd1c",
+   "fitbit_oauth_callback": "https://amirunningoauth.altervista.org/redirect.html",
+   "flask_main_address": "0.0.0.0",
+   "flask_main_port": 5050,
+   "flask_debug": true,
+   "cherrypy_fitbit_oauth_address": "0.0.0.0",
+   "cherrypy_fitbit_oauth_port": 8080,
+   "public_address": "amirunrpi.ddns.net",
+   "zwave_base_url": "http://127.0.0.1:8083",
+   "zwave_username": "admin",
+   "zwave_password": "AMIRUNNING",
+   "zwave_switch_binary": "37",
+   "zwave_sensor_binary": "48",
+   "zwave_sensor_multi": "49",
+   "led_red": 16,
+   "led_yellow" : 21,
+   "led_green" : 20,
+   "pir_pin_one": 12,
+   "pir_pin_two": 6
+}
